@@ -11,6 +11,7 @@ let initWebRoutes = (app) => {
     router.get('/get-crud', homeController.displayCRUD);
     router.get('/edit-crud', homeController.editCRUD);
     router.post('/put-crud', homeController.putCRUD);
+    router.get('/delete-crud', homeController.deleteCRUD);
 
     router.get('/news', (req, res) => {
         return res.send('New Pages')
