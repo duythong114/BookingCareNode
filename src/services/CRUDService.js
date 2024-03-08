@@ -41,7 +41,7 @@ let hashUserPassword = (password) => {
 let getAllUsers = () => {
     return new Promise(async (resolve, reject) => {
         try {
-            let users = db.User.findAll({
+            let users = await db.User.findAll({
                 raw: true,
             }
             );
@@ -77,7 +77,8 @@ let updateUserData = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
             let user = await db.User.findOne({
-                where: { id: data.id }
+                where: { id: data.id },
+                raw: false
             })
             if (user) {
                 user.firstName = data.firstName
@@ -100,13 +101,16 @@ let updateUserData = (data) => {
 let deleteUserById = (userId) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let user = await db.User.findOne({
+            // let user = await db.User.findOne({
+            //     where: { id: userId }
+            // })
+
+            // if (user) {
+            //     await user.destroy()
+            // }
+            await db.User.destroy({
                 where: { id: userId }
             })
-
-            if (user) {
-                await user.destroy()
-            }
 
             resolve();
         } catch (error) {

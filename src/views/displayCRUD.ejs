@@ -10,29 +10,26 @@
 </head>
 
 <style>
-    .btn-edit {
+    .btn-edit,
+    .btn-delete {
         cursor: pointer;
     }
 </style>
 
 <body>
-    <table class="table">
+    <table class="table mt-3 mx-3">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">email</th>
-                <th scope="col">firstName</th>
-                <th scope="col">lastName</th>
-                <th scope="col">address</th>
-                <th scope="col">action</th>
+                <th scope="col">Email</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Address</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
             <% for(let i=0; i < dataTable.length; i++) { %>
                 <tr>
-                    <td>
-                        <%= dataTable[i].id %>
-                    </td>
                     <td>
                         <%= dataTable[i].email %>
                     </td>
